@@ -9139,3 +9139,44 @@ Processing by Api::PokemonController#show as JSON
 Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 0.5ms | Allocations: 863)
 
 
+Started GET "/" for 127.0.0.1 at 2023-07-13 16:40:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/theofanisneofotistos/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/theofanisneofotistos/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | Allocations: 527)
+Completed 200 OK in 671ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 948976)
+
+
+Started GET "/api/pokemon/" for 127.0.0.1 at 2023-07-13 16:41:15 -0400
+Processing by Api::PokemonController#index as JSON
+  Rendering api/pokemon/index.json.jbuilder
+  [1m[36mPokemon Load (3.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons"[0m
+  ↳ app/views/api/pokemon/index.json.jbuilder:13
+  Rendered api/pokemon/index.json.jbuilder (Duration: 27.5ms | Allocations: 15189)
+Completed 200 OK in 33ms (Views: 17.7ms | ActiveRecord: 10.9ms | Allocations: 19296)
+
+
+Started GET "/api/pokemon/6" for 127.0.0.1 at 2023-07-13 16:45:54 -0400
+Processing by Api::PokemonController#show as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mPokemon Load (0.4ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemon_controller.rb:14:in `show'
+  Rendering api/pokemon/show.json.jbuilder
+  Rendered api/pokemon/_pokemon.json.jbuilder (Duration: 0.5ms | Allocations: 170)
+  Rendered api/pokemon/show.json.jbuilder (Duration: 2.0ms | Allocations: 613)
+Completed 200 OK in 15ms (Views: 2.9ms | ActiveRecord: 0.7ms | Allocations: 4266)
+
+
+Started GET "/api/pokemon/6" for 127.0.0.1 at 2023-07-13 16:48:03 -0400
+Processing by Api::PokemonController#show as JSON
+  Parameters: {"id"=>"6"}
+  [1m[36mPokemon Load (0.5ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/pokemon_controller.rb:14:in `show'
+  Rendering api/pokemon/show.json.jbuilder
+  Rendered api/pokemon/_pokemon.json.jbuilder (Duration: 0.4ms | Allocations: 163)
+  [1m[36mMove Load (4.7ms)[0m  [1m[34mSELECT "moves".* FROM "moves" INNER JOIN "poke_moves" ON "moves"."id" = "poke_moves"."move_id" WHERE "poke_moves"."pokemon_id" = $1[0m  [["pokemon_id", 6]]
+  ↳ app/views/api/pokemon/show.json.jbuilder:10
+  Rendered api/pokemon/show.json.jbuilder (Duration: 37.9ms | Allocations: 15329)
+Completed 200 OK in 41ms (Views: 28.8ms | ActiveRecord: 10.9ms | Allocations: 16678)
+
+
