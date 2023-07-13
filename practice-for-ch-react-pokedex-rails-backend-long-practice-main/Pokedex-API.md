@@ -23,7 +23,9 @@ Successful response:
   "poison",
   "ground",
   "rock",
-  "steel"
+  "steel",
+  "dark",
+  "fairy"
 ]
 ```
 
